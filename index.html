@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hotel Finder - Find Your Perfect Stay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <span class="logo-icon">✈️</span>
+                <span class="logo-text">Hotel Finder AI</span>
+            </div>
+            <div class="nav-links">
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Find Your Perfect Hotel with AI</h1>
+            <p class="hero-subtitle">Just describe what you're looking for in natural language</p>
+            
+            <!-- Search Box -->
+            <div class="search-container">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        id="searchInput" 
+                        placeholder="e.g., 'I want a luxury modern hotel in Goa for 2 nights under ₹17000 with pool and breakfast'"
+                        autocomplete="off"
+                    >
+                    <button class="search-btn" id="searchBtn">
+                        <span class="search-btn-text">Search</span>
+                        <span class="search-btn-icon">🔍</span>
+                    </button>
+                </div>
+                <p class="search-hint">💡 Try being specific: mention location, budget, dates, and amenities you want</p>
+            </div>
+
+            <!-- Example Queries -->
+            <div class="example-queries">
+                <p class="example-label">Try these examples:</p>
+                <div class="example-buttons">
+                    <button class="example-btn" data-query="Budget friendly hotel in Mumbai for 3 nights under ₹5000">Budget Mumbai</button>
+                    <button class="example-btn" data-query="Luxury resort in Maldives with beach and spa">Luxury Maldives</button>
+                    <button class="example-btn" data-query="Family hotel in Jaipur with kids amenities and good reviews">Family Jaipur</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animated Background Elements -->
+        <div class="hero-background">
+            <div class="floating-element element-1"></div>
+            <div class="floating-element element-2"></div>
+            <div class="floating-element element-3"></div>
+        </div>
+    </section>
+
+    <!-- Loading Animation -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Analyzing your request with AI...</p>
+            <p class="loading-subtext" id="loadingSubtext"></p>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <section class="results-section" id="resultsSection" style="display: none;">
+        <div class="results-container">
+            <!-- Results Header -->
+            <div class="results-header">
+                <div class="results-info">
+                    <h2 class="results-title" id="resultsTitle"></h2>
+                    <p class="results-subtitle" id="resultsSubtitle"></p>
+                </div>
+                <button class="back-btn" id="backBtn">
+                    <span class="back-icon">←</span> New Search
+                </button>
+            </div>
+
+            <!-- AI Insights -->
+            <div class="ai-insights" id="aiInsights" style="display: none;">
+                <div class="insights-card">
+                    <h3 class="insights-title">🤖 Your Requirements (AI Extracted)</h3>
+                    <div class="requirements-display" id="requirementsDisplay"></div>
+                </div>
+            </div>
+
+            <!-- Hotel Results Grid -->
+            <div class="hotels-grid" id="hotelsGrid"></div>
+
+            <!-- No Results Message -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon">🏨</div>
+                <h3>No hotels found</h3>
+                <p>Try adjusting your search criteria or location</p>
+                <button class="no-results-btn" id="newSearchBtn">Try Another Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Error Message -->
+    <div class="error-message" id="errorMessage" style="display: none;">
+        <div class="error-content">
+            <span class="error-close" id="errorClose">&times;</span>
+            <p class="error-text" id="errorText"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Made with ❤️ | Powered by AI & OpenRouter | Powered by SerpAPI</p>
+            <p class="footer-note">Note: Add your OpenRouter and SerpAPI keys in config.js</p>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

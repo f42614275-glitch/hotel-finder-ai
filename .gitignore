@@ -1,0 +1,42 @@
+# API Configuration (with real keys)
+config.js
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Dependencies (if adding package.json later)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build output
+dist/
+build/
+*.min.js
+*.min.css
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Browser cache
+.cache/
+
+# Sensitive data
+secrets.txt
+api-keys.txt
