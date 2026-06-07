@@ -41,13 +41,40 @@ const domElements = {
 
 // ==================== API CONFIGURATION ====================
 /**
- * These are loaded from config.js
- * Make sure config.js exists and contains:
- * const API_KEYS = {
- *     OPENROUTER_KEY: 'your-openrouter-key',
- *     SERPAPI_KEY: 'your-serpapi-key'
- * };
+ * API Keys Priority:
+ * 1. Environment variables (process.env or window.ENV)
+ * 2. config.js (for local development)
+ * 3. Error if neither exists
  */
+
+// Get API keys from environment variables or config.js
+const getAPIKeys = () => {
+    const openrouterKey = process.env?.OPENROUTER_KEY || window.ENV?.OPENROUTER_KEY || (typeof API_KEYS !== 'undefined' ? API_KEYS.OPENROUTER_KEY : null);
+    const serpapiKey = process.env?.SERPAPI_KEY || window.ENV?.SERPAPI_KEY || (typeof API_KEYS !== 'undefined' ? API_KEYS.SERPAPI_KEY : null);
+    
+    if (!openrouterKey) {
+        console.error('❌ OPENROUTER_KEY not found in environment variables or config.js');
+        throw new Error('OpenRouter API key not configured. Please add OPENROUTER_KEY to environment variables or config.js');
+    }
+    if (!serpapiKey) {
+        console.error('❌ SERPAPI_KEY not found in environment variables or config.js');
+        throw new Error('SerpAPI key not configured. Please add SERPAPI_KEY to environment variables or config.js');
+    }
+    
+    return { openrouter: openrouterKey, serpapi: serpapiKey };
+};
+
+let API_KEYS;
+try {
+    const keys = getAPIKeys();
+    API_KEYS = {
+        OPENROUTER_KEY: keys.openrouter,
+        SERPAPI_KEY: keys.serpapi
+    };
+    console.log('✅ API Keys loaded from environment variables');
+} catch (error) {
+    console.warn('⚠️ Falling back to config.js for API keys:', error.message);
+}
 
 // ==================== INITIALIZATION ====================
 function init() {
