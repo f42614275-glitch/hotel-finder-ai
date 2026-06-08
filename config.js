@@ -17,11 +17,11 @@ const API_KEYS = {
      * OpenRouter API Key
      * Get your free key at: https://openrouter.ai/
      */
-    OPENROUTER_KEY: 'your-openrouter-key-here',
+    OPENROUTER_KEY: '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',
 
     /**
      * SerpAPI Key
      * Get your key at: https://serpapi.com/
      */
-    SERPAPI_KEY: 'your-serpapi-key-here'
+    SERPAPI_KEY: 'cf1b250d976f31148a2af2542bddfc1031fc9df32e2ac6741012859ac4f2465f'
 };
